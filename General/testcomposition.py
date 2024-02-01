@@ -1,14 +1,7 @@
-import os
-import sys
-import time
-sys.path.insert(0, os.getcwd())
-
 from adhoccomputing.GenericModel import GenericModel
 from adhoccomputing.Generics import *
 from adhoccomputing.Experimentation.Topology import Topology
-
-
-
+import time
 
 class A(GenericModel):
   def on_init(self, eventobj: Event):
@@ -65,10 +58,10 @@ class Node(GenericModel):
   def __init__(self, componentname, componentinstancenumber, context=None, configurationparameters=None, num_worker_threads=1, topology=None):
     super().__init__(componentname, componentinstancenumber, context, configurationparameters, num_worker_threads, topology)
     # SUBCOMPONENTS
-    self.A = A("A", componentinstancenumber, topology=topology)
-    self.N = N("N", componentinstancenumber, topology=topology)
-    self.B = B("B", componentinstancenumber, topology=topology)
-    self.L = L("L", componentinstancenumber, topology=topology)
+    self.A = A("A", componentinstancenumber)
+    self.N = N("N", componentinstancenumber)
+    self.B = B("B", componentinstancenumber)
+    self.L = L("L", componentinstancenumber)
 
     self.components.append(self.A)
     self.components.append(self.N)
@@ -121,7 +114,6 @@ class Node(GenericModel):
 
 
 def main():
-  setAHCLogLevel(DEBUG_LEVEL_APPLOG)
   setAHCLogLevel(DEBUG)
   topo = Topology();
   topo.construct_single_node(Node, 0)
