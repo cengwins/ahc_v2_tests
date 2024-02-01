@@ -150,7 +150,7 @@ class AdHocNode(GenericModel):
 def main():
     #NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL
     setAHCLogLevel(25)
-    setAHCLogLevel(DEBUG_LEVEL_APPLOG)
+    setAHCLogLevel(DEBUG)
     # G = nx.Graph()
     # G.add_nodes_from([1, 2])
     # G.add_edges_from([(1, 2)])

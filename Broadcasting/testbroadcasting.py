@@ -2,7 +2,7 @@ import networkx as nx
 import time
 
 from adhoccomputing.GenericModel import GenericModel
-from adhoccomputing.Generics import Event, setAHCLogLevel, ConnectorTypes, EventTypes, logger, AHCTimer
+from adhoccomputing.Generics import * #Event, setAHCLogLevel, ConnectorTypes, EventTypes, logger, AHCTimer, DEBUG
 from adhoccomputing.Experimentation.Topology import Topology
 from adhoccomputing.Networking.LinkLayer.GenericLinkLayer import GenericLinkLayer
 from adhoccomputing.Networking.LogicalChannels.GenericChannel import GenericChannel
@@ -52,7 +52,7 @@ def send_broadcast_message_event():
 
 def main():
   #NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL
-  setAHCLogLevel(21)
+  setAHCLogLevel(DEBUG)
   #A random geometric graph, undirected and without self-loops
   G = nx.random_geometric_graph(9, 1)
   
